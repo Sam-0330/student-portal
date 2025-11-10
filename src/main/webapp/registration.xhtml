@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Register New Student</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h2 { color: #2F4F4F; text-align: center; }
+        form { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9; }
+        input[type=text], input[type=number] { width: 100%; padding: 8px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .btn { padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .btn:hover { background-color: #45a049; }
+        .error { color: red; margin-bottom: 10px; }
+    </style>
+</h:head>
+<h:body>
+    <h2>Register New Student</h2>
+
+    <h:form>
+        <h:messages globalOnly="true" styleClass="error"/>
+
+        Name:
+        <h:inputText value="#{studentBean.student.name}" required="true" requiredMessage="Name is required"/>
+        
+        Email:
+        <h:inputText value="#{studentBean.student.email}" required="true" requiredMessage="Email is required">
+            <f:validator validatorId="customEmailValidator"/>
+        </h:inputText>
+        
+        Phone:
+        <h:inputText value="#{studentBean.student.phone}" required="true" requiredMessage="Phone is required">
+            <f:validateRegex pattern="^\d{10}$" message="Phone must be 10 digits"/>
+        </h:inputText>
+        
+        Age:
+        <h:inputText value="#{studentBean.student.age}" required="true" requiredMessage="Age is required">
+            <f:validateLongRange minimum="18" maximum="60" message="Age must be between 18 and 60"/>
+        </h:inputText>
+        
+        <h:commandButton value="Submit" action="#{studentBean.save}" styleClass="btn"/>
+    </h:form>
+</h:body>
+</html>
