@@ -24,68 +24,70 @@ This project demonstrates:
 
 ---
 
+
+## 3. Database Configuration
+
+- Create a MySQL database:
+
+- CREATE DATABASE studentdb;
+
+
+- Update your src/main/resources/hibernate.cfg.xml file with your database credentials:
+
 ```markdown
-
-3. Database Configuration
-
-Create a MySQL database:
-
-CREATE DATABASE studentdb;
-
-
-Update your src/main/resources/hibernate.cfg.xml file with your database credentials:
-
 <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/studentdb?createDatabaseIfNotExist=true</property>
 <property name="hibernate.connection.username">root</property>
 <property name="hibernate.connection.password">your_mysql_password</property>
 <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 <property name="hibernate.hbm2ddl.auto">update</property>
 <property name="show_sql">true</property>
-
-4. How to Set Up and Run the Project
-Step 1: Clone the Repository
+```
+## 4. How to Set Up and Run the Project
+- **Step 1: Clone the Repository**
+```markdown
 git clone https://github.com/your-username/student-portal.git
 cd student-portal
+```
+- **Step 2: Configure the Database**
 
-Step 2: Configure the Database
+- Make sure your MySQL server is running.
+- Update the hibernate.cfg.xml file with your own username and password.
 
-Make sure your MySQL server is running.
-Update the hibernate.cfg.xml file with your own username and password.
+- ** Step 3: Build the Project**
 
-Step 3: Build the Project
-
-Use Maven to build the WAR file:
-
+- Use Maven to build the WAR file:
+```markdown
 mvn clean install
+```
 
+- This will generate a student-portal.war file inside the target folder.
 
-This will generate a student-portal.war file inside the target folder.
+- **Step 4: Deploy to Tomcat**
 
-Step 4: Deploy to Tomcat
-
-Copy the generated student-portal.war file into your Tomcat webapps folder.
-Start Tomcat.
-Access the application in your browser:
-
+- Copy the generated student-portal.war file into your Tomcat webapps folder.
+- Start Tomcat.
+- Access the application in your browser:
+```markdown
 http://localhost:9090/student-portal/
+```
+## 5. Application Workflow
 
-5. Application Workflow
+- **Welcome Page (welcome.xhtml)** — Entry point of the portal with a “Register” button.
 
-Welcome Page (welcome.xhtml) — Entry point of the portal with a “Register” button.
+- **Registration Page (registration.xhtml)** — Allows users to register a new student with validation for:
 
-Registration Page (registration.xhtml) — Allows users to register a new student with validation for:
+- **Email format (EmailValidator.java)**
 
-Email format (EmailValidator.java)
+- **Phone number format (10 digits)**
 
-Phone number format (10 digits)
+- **Age range (18–60)**
 
-Age range (18–60)
+- **Confirmation Page (confirmation.xhtml)** — Displays registered student details and a button to go to the dashboard.
 
-Confirmation Page (confirmation.xhtml) — Displays registered student details and a button to go to the dashboard.
+- **Dashboard Page (dashboard.xhtml)** — Lists all registered students from the database and allows deletion.
 
-Dashboard Page (dashboard.xhtml) — Lists all registered students from the database and allows deletion.
-
-6. Project Structure
+## 6. Project Structure
+```markdown
 student-portal/
 │
 ├── src/
@@ -107,11 +109,11 @@ student-portal/
 │
 ├── pom.xml
 └── README.md
-
-7. Developer Details
-
-Name: Shamita Babukumar
-Phone: 9840025309
-Email: shamitab0330@gmail.com
-
 ```
+
+##7. Developer Details
+
+- **Name:** Shamita Babukumar
+- **Phone:** 9840025309
+- **Email:** shamitab0330@gmail.com
+
