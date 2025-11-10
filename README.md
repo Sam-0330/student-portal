@@ -43,17 +43,17 @@ This project demonstrates:
 <property name="show_sql">true</property>
 ```
 ## 4. How to Set Up and Run the Project
-- **Step 1: Clone the Repository**
+Step 1: Clone the Repository
 ```markdown
 git clone https://github.com/your-username/student-portal.git
 cd student-portal
 ```
-- **Step 2: Configure the Database**
+Step 2: Configure the Database
 
 - Make sure your MySQL server is running.
 - Update the hibernate.cfg.xml file with your own username and password.
 
-- ** Step 3: Build the Project**
+Step 3: Build the Project
 
 - Use Maven to build the WAR file:
 ```markdown
@@ -62,7 +62,7 @@ mvn clean install
 
 - This will generate a student-portal.war file inside the target folder.
 
-- **Step 4: Deploy to Tomcat**
+Step 4: Deploy to Tomcat
 
 - Copy the generated student-portal.war file into your Tomcat webapps folder.
 - Start Tomcat.
